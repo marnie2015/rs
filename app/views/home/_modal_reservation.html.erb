@@ -5,6 +5,8 @@
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Reservation Form</h4>
         </div>
+        <input type="hidden" name="reservation[amount]" id="amount">
+        <input type="hidden" name="reservation[package]" id="reservation_package">
         <div class="modal-body">
           <div class="form-group">
             <label for="fname">NAME</label>
@@ -16,7 +18,7 @@
           </div>
           <div class="form-group">
             <label for="contact">PACKAGE</label>
-            <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.title] }, {:selected => params[:application_status]}, :class => "form-control") %>
+            <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.amount] }, {include_blank: 'Select Package', :selected => params[:application_status]}, :class => "form-control", id: 'package', name: 'package') %>
           </div>
           <div class="form-group">
             <label for="contact">DATE</label>
@@ -36,3 +38,13 @@
     </form>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    $('#package').change(function() {
+      var amount = $('#package option:selected').val();
+      var package = $('#package option:selected').text();
+      $('#amount').val(amount);
+      $('#reservation_package').val(package);
+    });
+  });
+</script>

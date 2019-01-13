@@ -9,6 +9,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @client.save
     @reservation.client_id = @client.id
+    @reservation.amount = reservation_params[:amount]
 
     respond_to do |format|
       if @reservation.save
