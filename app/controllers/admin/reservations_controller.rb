@@ -34,11 +34,9 @@ class Admin::ReservationsController < Admin::ApplicationController
   end
 
   def update
-    if @reservation.update(edit_reservation_params)
-      render inline: 'Successfully saved!'
-    else
-      render inline: 'error'
-    end
+    Client.find(@reservation.client_id).update(edit_client_params) if params[:table] == 'client'
+    @reservation.update(edit_reservation_params)  if params[:table] == 'reservation'
+    render inline: 'Successfully saved!'
   end
 
   def destroy
@@ -65,5 +63,9 @@ class Admin::ReservationsController < Admin::ApplicationController
 
   def client_params
     params.require(:client).permit(:fname, :mname, :lname, :contact)
+  end
+
+  def edit_client_params
+    params.permit(:fname, :mname, :lname, :contact)
   end
 end

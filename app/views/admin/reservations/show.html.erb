@@ -1,18 +1,22 @@
-<h1 class="page-header">Reservation</h1>
+<h1 class="page-header">Reservation
+  <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+    Add Payment
+  </button>
+</h1>
 <input type="hidden" id="app_id" value="<%= @reservation.id %>">
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="reservation_date">reservation_date</label>
+      <label for="reservation_date">Date</label>
       <div class="input-group">
-        <input type="date" class="form-control" id="reservation_date" name="reservation_date" value="<%= @reservation.reservation_date %>">
+        <input type="date" class="form-control editable" id="reservation_date" name="reservation_date" value="<%= @reservation.reservation_date %>">
         <%= edit_save_cancel_btn('reservation_date', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="reservation_time">reservation_time</label>
+      <label for="reservation_time">Time</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="reservation_time" name="reservation_time" value="<%= @reservation.reservation_time %>">
+        <input type="text" class="form-control editable" id="reservation_time" name="reservation_time" value="<%= @reservation.reservation_time %>">
         <%= edit_save_cancel_btn('reservation_time', 'reservation') %>
       </div>
     </div>
@@ -22,16 +26,16 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="package">package</label>
+      <label for="package">Package</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="package" name="package" value="<%= @reservation.package %>">
+        <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.title] }, {:selected => @reservation.package}, :class => "form-control editable", id: 'package', name: 'package') %>
         <%= edit_save_cancel_btn('package', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="amount">amount</label>
+      <label for="amount">Amount</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="amount" name="amount" value="<%= @reservation.amount %>">
+        <input type="text" class="form-control editable" id="amount" name="amount" value="<%= @reservation.amount %>">
         <%= edit_save_cancel_btn('amount', 'reservation') %>
       </div>
     </div>
@@ -41,17 +45,24 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="status">status</label>
+      <label for="status">Status</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="status" name="status" value="<%= @reservation.status %>">
+        <input type="text" class="form-control editable" id="status" name="status" value="<%= @reservation.status %>">
         <%= edit_save_cancel_btn('status', 'reservation') %>
       </div>
     </div>
-    <div class="col-sm-6">
-      <label for="client_id">client_id</label>
+    <div class="col-sm-3">
+      <label for="fname">Client Name</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="client_id" name="client_id" value="<%= @reservation.client_id %>">
-        <%= edit_save_cancel_btn('client_id', 'reservation') %>
+        <input type="text" class="form-control editable" id="fname" name="fname" value="<%= @reservation.client&.fname %>">
+        <%= edit_save_cancel_btn('fname', 'client') %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <label for="fname">Contact</label>
+      <div class="input-group">
+        <input type="text" class="form-control editable" id="contact" name="contact" value="<%= @reservation.client&.contact %>">
+        <%= edit_save_cancel_btn('contact', 'client') %>
       </div>
     </div>
   </div>
@@ -60,16 +71,16 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="place_of_church">place_of_church</label>
+      <label for="place_of_church">Place of Church</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="place_of_church" name="place_of_church" value="<%= @reservation.place_of_church %>">
+        <input type="text" class="form-control editable" id="place_of_church" name="place_of_church" value="<%= @reservation.place_of_church %>">
         <%= edit_save_cancel_btn('place_of_church', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="place_of_coverage">place_of_coverage</label>
+      <label for="place_of_coverage">Place of Coverage</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="place_of_coverage" name="place_of_coverage" value="<%= @reservation.place_of_coverage %>">
+        <input type="text" class="form-control editable" id="place_of_coverage" name="place_of_coverage" value="<%= @reservation.place_of_coverage %>">
         <%= edit_save_cancel_btn('place_of_coverage', 'reservation') %>
       </div>
     </div>
@@ -79,16 +90,16 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="reception">reception</label>
+      <label for="reception">Reception</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="reception" name="reception" value="<%= @reservation.reception %>">
+        <input type="text" class="form-control editable" id="reception" name="reception" value="<%= @reservation.reception %>">
         <%= edit_save_cancel_btn('reception', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="recommended_by">recommended_by</label>
+      <label for="recommended_by">Recommended by</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="recommended_by" name="recommended_by" value="<%= @reservation.recommended_by %>">
+        <input type="text" class="form-control editable" id="recommended_by" name="recommended_by" value="<%= @reservation.recommended_by %>">
         <%= edit_save_cancel_btn('recommended_by', 'reservation') %>
       </div>
     </div>
@@ -98,16 +109,16 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="tape">tape</label>
+      <label for="tape">Type of Tape</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="tape" name="tape" value="<%= @reservation.tape %>">
+        <input type="text" class="form-control editable" id="tape" name="tape" value="<%= @reservation.tape %>">
         <%= edit_save_cancel_btn('tape', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="coverage">coverage</label>
+      <label for="coverage">Type of Coverage</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="coverage" name="coverage" value="<%= @reservation.coverage %>">
+        <input type="text" class="form-control editable" id="coverage" name="coverage" value="<%= @reservation.coverage %>">
         <%= edit_save_cancel_btn('coverage', 'reservation') %>
       </div>
     </div>
@@ -117,16 +128,16 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="album">album</label>
+      <label for="album">Album</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="album" name="album" value="<%= @reservation.album %>">
+        <input type="text" class="form-control editable" id="album" name="album" value="<%= @reservation.album %>">
         <%= edit_save_cancel_btn('album', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="motif">motif</label>
+      <label for="motif">Motif</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="motif" name="motif" value="<%= @reservation.motif %>">
+        <input type="text" class="form-control editable" id="motif" name="motif" value="<%= @reservation.motif %>">
         <%= edit_save_cancel_btn('motif', 'reservation') %>
       </div>
     </div>
@@ -136,25 +147,27 @@
 <div class="form-group">
   <div class="row">
     <div class="col-sm-6">
-      <label for="excess_shots">excess_shots</label>
+      <label for="excess_shots">Excess Shots</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="excess_shots" name="excess_shots" value="<%= @reservation.excess_shots %>">
+        <input type="text" class="form-control editable" id="excess_shots" name="excess_shots" value="<%= @reservation.excess_shots %>">
         <%= edit_save_cancel_btn('excess_shots', 'reservation') %>
       </div>
     </div>
     <div class="col-sm-6">
-      <label for="free">free</label>
+      <label for="free">Free</label>
       <div class="input-group">
-        <input type="text" class="form-control" id="free" name="free" value="<%= @reservation.free %>">
+        <input type="text" class="form-control editable" id="free" name="free" value="<%= @reservation.free %>">
         <%= edit_save_cancel_btn('free', 'reservation') %>
       </div>
     </div>
   </div>
 </div>
 
+<%= render 'modal_payment' %>
+
 <script>
   $(document).ready(function() {
-    $('.form-control').attr('disabled', true);
+    $('.editable').attr('disabled', true);
     $('.save-btn-span').hide();
     $('.cancel-btn-span').hide();
     var app_id = $('#app_id').val();

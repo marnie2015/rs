@@ -1,3 +1,4 @@
+<h1 class="page-header">Reservation</h1>
 <%= form_for [:admin, @reservation] do |f| %>
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
@@ -14,12 +15,12 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="reservation_date">reservation_date</label>
+        <label for="reservation_date">Date</label>
         <input type="date" class="form-control" id="reservation_date" name="reservation[reservation_date]">
       </div>
       <div class="col-sm-6">
-        <label for="reservation_time">reservation_time</label>
-        <input type="time" class="form-control" id="reservation_time" name="reservation[reservation_time]">
+        <label for="reservation_time">Time</label>
+        <input type="text" class="form-control" id="reservation_time" name="reservation[reservation_time]">
       </div>
     </div>
   </div>
@@ -27,11 +28,11 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="package">package</label>
-        <input type="text" class="form-control" id="package" name="reservation[package]">
+        <label for="package">Package</label>
+        <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.title] }, {:selected => params[:application_status]}, :class => "form-control") %>
       </div>
       <div class="col-sm-6">
-        <label for="amount">amount</label>
+        <label for="amount">Amount</label>
         <input type="text" class="form-control" id="amount" name="reservation[amount]">
       </div>
     </div>
@@ -41,11 +42,19 @@
     <div class="row">
       <div class="col-sm-6">
         <label for="status">Status</label>
-        <input type="text" class="form-control" id="status" name="reservation[status]">
+        <select class="form-control" id="status" name="reservation[status]">
+          <option>PENDING</option>
+          <option>PAID</option>
+          <option>CANCELLED</option>
+        </select>
       </div>
-      <div class="col-sm-6">
-        <label for="client_id">Name</label>
+      <div class="col-sm-3">
+        <label for="client_id">Client Name</label>
         <input type="text" class="form-control" id="client_id" name="client[fname]">
+      </div>
+      <div class="col-sm-3">
+        <label for="contact">Contact</label>
+        <input type="text" class="form-control" id="contact" name="client[contact]">
       </div>
     </div>
   </div>
@@ -53,11 +62,11 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="place_of_church">place_of_church</label>
+        <label for="place_of_church">Place of Church</label>
         <input type="text" class="form-control" id="place_of_church" name="reservation[place_of_church]">
       </div>
       <div class="col-sm-6">
-        <label for="place_of_coverage">place_of_coverage</label>
+        <label for="place_of_coverage">Place of Coverage</label>
         <input type="text" class="form-control" id="place_of_coverage" name="reservation[place_of_coverage]">
       </div>
     </div>
@@ -66,11 +75,11 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="reception">reception</label>
+        <label for="reception">Reception</label>
         <input type="text" class="form-control" id="reception" name="reservation[reception]">
       </div>
       <div class="col-sm-6">
-        <label for="recommended_by">recommended_by</label>
+        <label for="recommended_by">Recommended by</label>
         <input type="text" class="form-control" id="recommended_by" name="reservation[recommended_by]">
       </div>
     </div>
@@ -79,11 +88,11 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="tape">tape</label>
+        <label for="tape">Type of Tape</label>
         <input type="text" class="form-control" id="tape" name="reservation[tape]">
       </div>
       <div class="col-sm-6">
-        <label for="coverage">coverage</label>
+        <label for="coverage">Type of Coverage</label>
         <input type="text" class="form-control" id="coverage" name="reservation[coverage]">
       </div>
     </div>
@@ -92,11 +101,11 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="album">album</label>
+        <label for="album">Album</label>
         <input type="text" class="form-control" id="album" name="reservation[album]">
       </div>
       <div class="col-sm-6">
-        <label for="motif">motif</label>
+        <label for="motif">Motif</label>
         <input type="text" class="form-control" id="motif" name="reservation[motif]">
       </div>
     </div>
@@ -105,11 +114,11 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6">
-        <label for="excess_shots">excess_shots</label>
+        <label for="excess_shots">Excess shots</label>
         <input type="text" class="form-control" id="excess_shots" name="reservation[excess_shots]">
       </div>
       <div class="col-sm-6">
-        <label for="free">free</label>
+        <label for="free">Free</label>
         <input type="text" class="form-control" id="free" name="reservation[free]">
       </div>
     </div>

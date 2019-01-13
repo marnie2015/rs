@@ -8,7 +8,7 @@ class Admin::UsersController < Admin::ApplicationController
       @user = User.find_by(email: login_params[:email]).try(:authenticate, login_params[:password])
       if @user
         session[:user] = @user
-        redirect_to '/admin/users'
+        redirect_to '/admin/reservations'
       else
         flash[:message] = 'Invalid username or password!'
       end
