@@ -5,6 +5,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.string :or_number
       t.references :reservation, foreign_key: true
       t.string :remarks
+      t.float :amount
 
       t.timestamps
     end

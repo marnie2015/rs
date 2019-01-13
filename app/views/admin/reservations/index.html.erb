@@ -30,7 +30,7 @@
             <td><%= reservation.reservation_date %></td>
             <td><%= reservation.reservation_time %></td>
             <td><%= reservation.package %></td>
-            <td><%= reservation.amount %></td>
+            <td><%= number_with_delimiter("%.0f" % (reservation.amount || 0)) %></td>
             <td><%= reservation.status %></td>
             <td><%= link_to 'View', admin_reservation_path(reservation) %></td>
           </tr>

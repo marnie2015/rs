@@ -1,4 +1,5 @@
 class Admin::PaymentsController < Admin::ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,7 +21,7 @@ class Admin::PaymentsController < Admin::ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
+        format.html { redirect_to "/admin/reservations/#{@payment.reservation_id}", notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }
@@ -56,6 +57,6 @@ class Admin::PaymentsController < Admin::ApplicationController
   end
 
   def payment_params
-    params.require(:payment).permit(:or_date, :or_number, :reservation_id, :remarks)
+    params.require(:payment).permit(:or_date, :or_number, :reservation_id, :remarks, :amount)
   end
 end

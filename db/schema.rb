@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_160618) do
     t.string "or_number"
     t.bigint "reservation_id"
     t.string "remarks"
+    t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reservation_id"], name: "index_payments_on_reservation_id"

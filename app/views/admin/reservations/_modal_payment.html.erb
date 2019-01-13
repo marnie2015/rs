@@ -1,35 +1,35 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Payment</h4>
-      </div>
-      <div class="modal-body">
-        <form>
+    <form action="/admin/payments" method="POST">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Payment</h4>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="payment[reservation_id]" value="<%= params[:id] %>">
           <div class="form-group">
             <label for="or_date">OR DATE</label>
-            <input type="date" class="form-control" id="or_date" value="<%= Time.now.strftime('%Y-%m-%d') %>">
+            <input type="date" class="form-control" id="or_date" value="<%= Time.now.strftime('%Y-%m-%d') %>" name="payment[or_date]" required>
           </div>
           <div class="form-group">
             <label for="or_number">OR NUMBER</label>
-            <input type="text" class="form-control" id="or_number">
+            <input type="text" class="form-control" id="or_number" name="payment[or_number]" required>
           </div>
           <div class="form-group">
             <label for="amount">Amount</label>
-            <input type="number" class="form-control" id="amount">
+            <input type="number" class="form-control" id="amount" name="payment[amount]" required>
           </div>
           <div class="form-group">
             <label for="remarks">Remarks</label>
-            <input type="text" class="form-control" id="remarks">
+            <input type="text" class="form-control" id="remarks" name="payment[remarks]">
           </div>
-          <button type="submit" class="btn btn-default hidden">Submit</button>
-        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

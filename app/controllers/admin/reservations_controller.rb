@@ -7,6 +7,7 @@ class Admin::ReservationsController < Admin::ApplicationController
   end
 
   def show
+    @payments = Payment.where(reservation_id: @reservation.id)
   end
 
   def new

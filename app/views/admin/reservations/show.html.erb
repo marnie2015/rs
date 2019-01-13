@@ -4,160 +4,200 @@
   </button>
 </h1>
 <input type="hidden" id="app_id" value="<%= @reservation.id %>">
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="reservation_date">Date</label>
-      <div class="input-group">
-        <input type="date" class="form-control editable" id="reservation_date" name="reservation_date" value="<%= @reservation.reservation_date %>">
-        <%= edit_save_cancel_btn('reservation_date', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="reservation_time">Time</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="reservation_time" name="reservation_time" value="<%= @reservation.reservation_time %>">
-        <%= edit_save_cancel_btn('reservation_time', 'reservation') %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">DETAILS</div>
+      <div class="panel-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="reservation_date">Date</label>
+              <div class="input-group">
+                <input type="date" class="form-control editable" id="reservation_date" name="reservation_date" value="<%= @reservation.reservation_date %>">
+                <%= edit_save_cancel_btn('reservation_date', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="reservation_time">Time</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="reservation_time" name="reservation_time" value="<%= @reservation.reservation_time %>">
+                <%= edit_save_cancel_btn('reservation_time', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="package">Package</label>
+              <div class="input-group">
+                <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.title] }, {:selected => @reservation.package}, :class => "form-control editable", id: 'package', name: 'package') %>
+                <%= edit_save_cancel_btn('package', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="amount">Amount</label>
+              <div class="input-group">
+                <input type="number" class="form-control editable" id="amount" name="amount" value="<%= @reservation.amount %>">
+                <%= edit_save_cancel_btn('amount', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="status">Status</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="status" name="status" value="<%= @reservation.status %>">
+                <%= edit_save_cancel_btn('status', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label for="fname">Client Name</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="fname" name="fname" value="<%= @reservation.client&.fname %>">
+                <%= edit_save_cancel_btn('fname', 'client') %>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <label for="fname">Contact</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="contact" name="contact" value="<%= @reservation.client&.contact %>">
+                <%= edit_save_cancel_btn('contact', 'client') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="place_of_church">Place of Church</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="place_of_church" name="place_of_church" value="<%= @reservation.place_of_church %>">
+                <%= edit_save_cancel_btn('place_of_church', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="place_of_coverage">Place of Coverage</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="place_of_coverage" name="place_of_coverage" value="<%= @reservation.place_of_coverage %>">
+                <%= edit_save_cancel_btn('place_of_coverage', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="reception">Reception</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="reception" name="reception" value="<%= @reservation.reception %>">
+                <%= edit_save_cancel_btn('reception', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="recommended_by">Recommended by</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="recommended_by" name="recommended_by" value="<%= @reservation.recommended_by %>">
+                <%= edit_save_cancel_btn('recommended_by', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="tape">Type of Tape</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="tape" name="tape" value="<%= @reservation.tape %>">
+                <%= edit_save_cancel_btn('tape', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="coverage">Type of Coverage</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="coverage" name="coverage" value="<%= @reservation.coverage %>">
+                <%= edit_save_cancel_btn('coverage', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="album">Album</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="album" name="album" value="<%= @reservation.album %>">
+                <%= edit_save_cancel_btn('album', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="motif">Motif</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="motif" name="motif" value="<%= @reservation.motif %>">
+                <%= edit_save_cancel_btn('motif', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="excess_shots">Excess Shots</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="excess_shots" name="excess_shots" value="<%= @reservation.excess_shots %>">
+                <%= edit_save_cancel_btn('excess_shots', 'reservation') %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="free">Free</label>
+              <div class="input-group">
+                <input type="text" class="form-control editable" id="free" name="free" value="<%= @reservation.free %>">
+                <%= edit_save_cancel_btn('free', 'reservation') %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="package">Package</label>
-      <div class="input-group">
-        <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.title] }, {:selected => @reservation.package}, :class => "form-control editable", id: 'package', name: 'package') %>
-        <%= edit_save_cancel_btn('package', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="amount">Amount</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="amount" name="amount" value="<%= @reservation.amount %>">
-        <%= edit_save_cancel_btn('amount', 'reservation') %>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">PAYMENTS</div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>OR DATE</th>
+              <th>OR NUMBER</th>
+              <th>Amount</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
 
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="status">Status</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="status" name="status" value="<%= @reservation.status %>">
-        <%= edit_save_cancel_btn('status', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <label for="fname">Client Name</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="fname" name="fname" value="<%= @reservation.client&.fname %>">
-        <%= edit_save_cancel_btn('fname', 'client') %>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <label for="fname">Contact</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="contact" name="contact" value="<%= @reservation.client&.contact %>">
-        <%= edit_save_cancel_btn('contact', 'client') %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="place_of_church">Place of Church</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="place_of_church" name="place_of_church" value="<%= @reservation.place_of_church %>">
-        <%= edit_save_cancel_btn('place_of_church', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="place_of_coverage">Place of Coverage</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="place_of_coverage" name="place_of_coverage" value="<%= @reservation.place_of_coverage %>">
-        <%= edit_save_cancel_btn('place_of_coverage', 'reservation') %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="reception">Reception</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="reception" name="reception" value="<%= @reservation.reception %>">
-        <%= edit_save_cancel_btn('reception', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="recommended_by">Recommended by</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="recommended_by" name="recommended_by" value="<%= @reservation.recommended_by %>">
-        <%= edit_save_cancel_btn('recommended_by', 'reservation') %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="tape">Type of Tape</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="tape" name="tape" value="<%= @reservation.tape %>">
-        <%= edit_save_cancel_btn('tape', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="coverage">Type of Coverage</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="coverage" name="coverage" value="<%= @reservation.coverage %>">
-        <%= edit_save_cancel_btn('coverage', 'reservation') %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="album">Album</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="album" name="album" value="<%= @reservation.album %>">
-        <%= edit_save_cancel_btn('album', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="motif">Motif</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="motif" name="motif" value="<%= @reservation.motif %>">
-        <%= edit_save_cancel_btn('motif', 'reservation') %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6">
-      <label for="excess_shots">Excess Shots</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="excess_shots" name="excess_shots" value="<%= @reservation.excess_shots %>">
-        <%= edit_save_cancel_btn('excess_shots', 'reservation') %>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <label for="free">Free</label>
-      <div class="input-group">
-        <input type="text" class="form-control editable" id="free" name="free" value="<%= @reservation.free %>">
-        <%= edit_save_cancel_btn('free', 'reservation') %>
+          <tbody>
+            <% @payments.each do |payment| %>
+              <tr>
+                <td><%= payment.or_date %></td>
+                <td><%= payment.or_number %></td>
+                <td><%= number_with_delimiter("%.2f" % (payment.amount || 0)) %></td>
+                <td><%= payment.remarks %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
