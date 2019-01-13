@@ -1,0 +1,38 @@
+<div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <form action="/reservations" method="POST">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Reservation Form</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="fname">NAME</label>
+            <input type="text" class="form-control" id="fname" name="client[fname]">
+          </div>
+          <div class="form-group">
+            <label for="contact">CONTACT</label>
+            <input type="text" class="form-control" id="contact"  name="client[contact]">
+          </div>
+          <div class="form-group">
+            <label for="contact">PACKAGE</label>
+            <%= select("reservation", "package", Package.all.collect { |package| [package.title, package.title] }, {:selected => params[:application_status]}, :class => "form-control") %>
+          </div>
+          <div class="form-group">
+            <label for="contact">DATE</label>
+            <input type="date" class="form-control" id="reservation_date"  name="reservation[reservation_date]">
+          </div>
+          <div class="form-group">
+            <label for="contact">TIME</label>
+            <input type="text" class="form-control" id="reservation_time"  name="reservation[reservation_time]">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

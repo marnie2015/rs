@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/reservations' => 'reservations#index'
+  post '/reservations' => 'reservations#create'
   namespace :admin do
     resources :payments
     resources :packages
