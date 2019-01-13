@@ -1,5 +1,6 @@
 class Admin::ReservationsController < Admin::ApplicationController
   skip_before_action :verify_authenticity_token
+  # before_action :check_access
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
