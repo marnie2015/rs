@@ -1,0 +1,199 @@
+<h1 class="page-header">Reservation</h1>
+<input type="hidden" id="app_id" value="<%= @reservation.id %>">
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="reservation_date">reservation_date</label>
+      <div class="input-group">
+        <input type="date" class="form-control" id="reservation_date" name="reservation_date" value="<%= @reservation.reservation_date %>">
+        <%= edit_save_cancel_btn('reservation_date', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="reservation_time">reservation_time</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="reservation_time" name="reservation_time" value="<%= @reservation.reservation_time %>">
+        <%= edit_save_cancel_btn('reservation_time', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="package">package</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="package" name="package" value="<%= @reservation.package %>">
+        <%= edit_save_cancel_btn('package', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="amount">amount</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="amount" name="amount" value="<%= @reservation.amount %>">
+        <%= edit_save_cancel_btn('amount', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="status">status</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="status" name="status" value="<%= @reservation.status %>">
+        <%= edit_save_cancel_btn('status', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="client_id">client_id</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="client_id" name="client_id" value="<%= @reservation.client_id %>">
+        <%= edit_save_cancel_btn('client_id', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="place_of_church">place_of_church</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="place_of_church" name="place_of_church" value="<%= @reservation.place_of_church %>">
+        <%= edit_save_cancel_btn('place_of_church', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="place_of_coverage">place_of_coverage</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="place_of_coverage" name="place_of_coverage" value="<%= @reservation.place_of_coverage %>">
+        <%= edit_save_cancel_btn('place_of_coverage', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="reception">reception</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="reception" name="reception" value="<%= @reservation.reception %>">
+        <%= edit_save_cancel_btn('reception', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="recommended_by">recommended_by</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="recommended_by" name="recommended_by" value="<%= @reservation.recommended_by %>">
+        <%= edit_save_cancel_btn('recommended_by', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="tape">tape</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="tape" name="tape" value="<%= @reservation.tape %>">
+        <%= edit_save_cancel_btn('tape', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="coverage">coverage</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="coverage" name="coverage" value="<%= @reservation.coverage %>">
+        <%= edit_save_cancel_btn('coverage', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="album">album</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="album" name="album" value="<%= @reservation.album %>">
+        <%= edit_save_cancel_btn('album', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="motif">motif</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="motif" name="motif" value="<%= @reservation.motif %>">
+        <%= edit_save_cancel_btn('motif', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <label for="excess_shots">excess_shots</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="excess_shots" name="excess_shots" value="<%= @reservation.excess_shots %>">
+        <%= edit_save_cancel_btn('excess_shots', 'reservation') %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <label for="free">free</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="free" name="free" value="<%= @reservation.free %>">
+        <%= edit_save_cancel_btn('free', 'reservation') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.form-control').attr('disabled', true);
+    $('.save-btn-span').hide();
+    $('.cancel-btn-span').hide();
+    var app_id = $('#app_id').val();
+
+    $('.edit-btn-span').click(function() {
+      var field = $(this).data('field');
+      var field_val = $('#' + field).val();
+
+      $('#cancel-' + field).data('val', field_val);
+      $('#' + field).attr('disabled', false);
+      $('#edit-' + field).hide();
+      $('#save-' + field).show();
+      $('#cancel-' + field).show();
+    });
+
+    $('.cancel-btn-span').click(function() {
+      var field = $(this).data('field');
+      var prev_val = $('#cancel-' + field).data('val');
+
+      $('#' + field).val(prev_val);
+      $('#' + field).attr('disabled', true);
+      $('#edit-' + field).show();
+      $('#save-' + field).hide();
+      $('#cancel-' + field).hide();
+    });
+
+    $('.save-btn-span').click(function() {
+      var field = $(this).data('field');
+      var table = $(this).data('table');
+      var val = $('#' + field).val();
+
+      $('#' + field).attr('disabled', true);
+      $('#edit-' + field).show();
+      $('#save-' + field).hide();
+      $('#cancel-' + field).hide();
+
+      $.post('/admin/reservations/update?id=' + app_id + '&table='+ table + '&'+ field + '=' + val, function(res) {
+        alert(res);
+      });
+    });
+  });
+</script>

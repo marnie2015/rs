@@ -1,0 +1,97 @@
+<%= form_with(model: reservation, local: true) do |form| %>
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reservation_date %>
+    <%= form.date_select :reservation_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reservation_time %>
+    <%= form.datetime_select :reservation_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :package %>
+    <%= form.text_field :package %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.text_field :client_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place_of_church %>
+    <%= form.text_field :place_of_church %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place_of_coverage %>
+    <%= form.text_field :place_of_coverage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reception %>
+    <%= form.text_field :reception %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recommended_by %>
+    <%= form.text_field :recommended_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tape %>
+    <%= form.text_field :tape %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coverage %>
+    <%= form.text_field :coverage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album %>
+    <%= form.text_field :album %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motif %>
+    <%= form.text_field :motif %>
+  </div>
+
+  <div class="field">
+    <%= form.label :excess_shots %>
+    <%= form.text_field :excess_shots %>
+  </div>
+
+  <div class="field">
+    <%= form.label :free %>
+    <%= form.text_field :free %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

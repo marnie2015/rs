@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :payments
+    resources :packages
+    post '/reservations/update' => 'reservations#update'
+    resources :reservations, except: [:edit, :destroy, :update]
+    resources :clients
+
     get '/reset-password' => 'users#reset_password'
     post '/reset-password' => 'users#reset_password'
     get '/forgot-password' => 'users#forgot_password'

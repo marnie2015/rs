@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_date: 2019-01-13
+  reservation_time: 2019-01-13 00:02:47
+  package: MyString
+  amount: 1.5
+  status: MyString
+  client: one
+  place_of_church: MyString
+  place_of_coverage: MyString
+  reception: MyString
+  recommended_by: MyString
+  tape: MyString
+  coverage: MyString
+  album: MyString
+  motif: MyString
+  excess_shots: MyString
+  free: MyString
+
+two:
+  reservation_date: 2019-01-13
+  reservation_time: 2019-01-13 00:02:47
+  package: MyString
+  amount: 1.5
+  status: MyString
+  client: two
+  place_of_church: MyString
+  place_of_coverage: MyString
+  reception: MyString
+  recommended_by: MyString
+  tape: MyString
+  coverage: MyString
+  album: MyString
+  motif: MyString
+  excess_shots: MyString
+  free: MyString

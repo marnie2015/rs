@@ -1,0 +1,119 @@
+<%= form_for [:admin, @reservation] do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="reservation_date">reservation_date</label>
+        <input type="date" class="form-control" id="reservation_date" name="reservation[reservation_date]">
+      </div>
+      <div class="col-sm-6">
+        <label for="reservation_time">reservation_time</label>
+        <input type="time" class="form-control" id="reservation_time" name="reservation[reservation_time]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="package">package</label>
+        <input type="text" class="form-control" id="package" name="reservation[package]">
+      </div>
+      <div class="col-sm-6">
+        <label for="amount">amount</label>
+        <input type="text" class="form-control" id="amount" name="reservation[amount]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="status">Status</label>
+        <input type="text" class="form-control" id="status" name="reservation[status]">
+      </div>
+      <div class="col-sm-6">
+        <label for="client_id">Name</label>
+        <input type="text" class="form-control" id="client_id" name="client[fname]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="place_of_church">place_of_church</label>
+        <input type="text" class="form-control" id="place_of_church" name="reservation[place_of_church]">
+      </div>
+      <div class="col-sm-6">
+        <label for="place_of_coverage">place_of_coverage</label>
+        <input type="text" class="form-control" id="place_of_coverage" name="reservation[place_of_coverage]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="reception">reception</label>
+        <input type="text" class="form-control" id="reception" name="reservation[reception]">
+      </div>
+      <div class="col-sm-6">
+        <label for="recommended_by">recommended_by</label>
+        <input type="text" class="form-control" id="recommended_by" name="reservation[recommended_by]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="tape">tape</label>
+        <input type="text" class="form-control" id="tape" name="reservation[tape]">
+      </div>
+      <div class="col-sm-6">
+        <label for="coverage">coverage</label>
+        <input type="text" class="form-control" id="coverage" name="reservation[coverage]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="album">album</label>
+        <input type="text" class="form-control" id="album" name="reservation[album]">
+      </div>
+      <div class="col-sm-6">
+        <label for="motif">motif</label>
+        <input type="text" class="form-control" id="motif" name="reservation[motif]">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="excess_shots">excess_shots</label>
+        <input type="text" class="form-control" id="excess_shots" name="reservation[excess_shots]">
+      </div>
+      <div class="col-sm-6">
+        <label for="free">free</label>
+        <input type="text" class="form-control" id="free" name="reservation[free]">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+<% end %>

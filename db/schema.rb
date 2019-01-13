@@ -10,10 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_150829) do
+ActiveRecord::Schema.define(version: 2019_01_12_160618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string "fname"
+    t.string "mname"
+    t.string "lname"
+    t.string "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.float "amount"
+    t.string "status"
+    t.string "url1"
+    t.string "url2"
+    t.string "url3"
+    t.string "url4"
+    t.string "url5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.date "or_date"
+    t.string "or_number"
+    t.bigint "reservation_id"
+    t.string "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "reservation_date"
+    t.string "reservation_time"
+    t.string "package"
+    t.float "amount"
+    t.string "status"
+    t.bigint "client_id"
+    t.string "place_of_church"
+    t.string "place_of_coverage"
+    t.string "reception"
+    t.string "recommended_by"
+    t.string "tape"
+    t.string "coverage"
+    t.string "album"
+    t.string "motif"
+    t.string "excess_shots"
+    t.string "free"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_reservations_on_client_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -24,4 +79,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_150829) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "payments", "reservations"
+  add_foreign_key "reservations", "clients"
 end

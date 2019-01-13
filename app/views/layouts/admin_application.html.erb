@@ -1,6 +1,7 @@
 <!DOCTYPE html>
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -20,8 +21,8 @@
             <% if session[:user] %>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<%= '/admin/users' %>">Users</a></li>
-              <li><a href="<%= 'test' %>">Reservations</a></li>
-              <li><a href="<%= 'test' %>">Payments</a></li>
+              <li><a href="<%= '/admin/reservations' %>">Reservations</a></li>
+              <li><a href="<%= '/admin/payments' %>">Payments</a></li>
               <li><a href="<%= '/admin/logout' %>">Logout</a></li>
             </ul>
             <% end %>
