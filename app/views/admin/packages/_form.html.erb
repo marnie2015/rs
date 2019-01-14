@@ -1,62 +1,51 @@
-<%= form_with(model: package, local: true) do |form| %>
-  <% if package.errors.any? %>
+<%= form_for [:admin, @package] do |f| %>
+  <% if @package.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(package.errors.count, "error") %> prohibited this package from being saved:</h2>
+      <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
 
       <ul>
-      <% package.errors.full_messages.each do |message| %>
+      <% @package.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+  <div class="form-group">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+  <div class="form-group">
+    <%= f.label :status %><br>
+    <%= f.text_field :status, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :url1 %>
-    <%= form.text_field :url1 %>
+  <div class="form-group">
+    <%= f.label :url1 %><br>
+    <%= f.text_field :url1, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :url2 %>
-    <%= form.text_field :url2 %>
+  <div class="form-group">
+    <%= f.label :url2 %><br>
+    <%= f.text_field :url2, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :url3 %>
-    <%= form.text_field :url3 %>
+  <div class="form-group">
+    <%= f.label :url3 %><br>
+    <%= f.text_field :url3, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :url4 %>
-    <%= form.text_field :url4 %>
+  <div class="form-group">
+    <%= f.label :url4 %><br>
+    <%= f.text_field :url4, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= form.label :url5 %>
-    <%= form.text_field :url5 %>
+  <div class="form-group">
+    <%= f.label :url5 %><br>
+    <%= f.text_field :url5, class: 'form-control' %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
 <% end %>
