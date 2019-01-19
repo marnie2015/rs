@@ -20,7 +20,7 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: ('alert alert-success' if Time.now.day == day.day && Time.now.month == day.month) do %>
+            <%= content_tag :td, class: ('alert alert-success' if Time.now.to_date == day.to_date) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
               <% else %>

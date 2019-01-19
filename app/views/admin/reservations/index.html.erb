@@ -7,6 +7,11 @@
 </h1>
 <div class="row">
   <div class="col-sm-12">
+    <button class="alert btn-success"></button>  <label>PAID</label>
+    <button class="alert btn-danger"></button>  <label>PENDING</label>
+    <button class="alert alert-success"></button>  <label>Current Day</label>
+  </div>
+  <div class="col-sm-12">
     <div id="events_calendar">
       <%= render partial: "calendar", locals: {events: @reservations} %>
     </div>
