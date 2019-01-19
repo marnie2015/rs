@@ -159,6 +159,15 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <hr>
+      <div id="events_calendar">
+        <%= render partial: "calendar", locals: {events: @reservations} %>
+      </div>
+    </div>
+  </div>
 </div>
 <%= render 'modal_reservation' %>
 <style>

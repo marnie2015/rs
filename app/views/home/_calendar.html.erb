@@ -1,0 +1,8 @@
+<%= month_calendar events: @reservations, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, reservations| %>
+  <% if date.month == (params[:start_date]&.to_date&.month || Time.now.month) %>
+  <%= date.day %>
+  <div>
+    <span class="badge badge-secondary"><%= (3 - reservations.count) %> slot</span>
+  </div>
+  <% end %>
+<% end %>
