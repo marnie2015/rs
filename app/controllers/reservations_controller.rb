@@ -10,6 +10,7 @@ class ReservationsController < ApplicationController
     @client.save
     @reservation.client_id = @client.id
     @reservation.amount = reservation_params[:amount]
+    @reservation.status = 'PENDING'
 
     respond_to do |format|
       if @reservation.save

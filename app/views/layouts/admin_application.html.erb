@@ -21,9 +21,9 @@
           <div id="navbar" class="navbar-collapse collapse">
             <% if session[:user] %>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<%= '/admin/users' %>">Users</a></li>
-              <li><a href="<%= '/admin/reservations' %>">Reservations</a></li>
-              <li><a href="<%= '/admin/logout' %>">Logout</a></li>
+              <li><a href="<%= '/admin/users' %>"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+              <li><a href="<%= '/admin/reservations' %>"><span class="glyphicon glyphicon-check"></span> Reservations</a></li>
+              <li><a href="<%= '/admin/logout' %>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
             <% end %>
           </div>

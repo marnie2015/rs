@@ -1,0 +1,19 @@
+<%= month_calendar events: @reservations, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, reservations| %>
+  <% if date.month == (params[:start_date]&.to_date&.month || Time.now.month) %>
+    <%= date.day %><br>
+    <% reservations.each do |reservation| %>
+      <a href="/admin/reservations/<%= reservation.id %>" class="btn btn-<%= reservation.status == 'PAID' ? 'success' : 'danger' %> btn-xs">
+        <span class="glyphicon glyphicon-eye-open"></span> <%= reservation&.client&.fname %>
+      </a>
+    <% end %>
+  <% end %>
+<% end %>
+<style>
+  td {
+    width: 14%;
+  }
+
+  .btn-success {
+    margin-bottom: 5px;
+  }
+</style>

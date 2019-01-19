@@ -1,13 +1,13 @@
 <h1 class="page-header">Reservation
   <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
-    Add Payment
+    <span class="glyphicon glyphicon-plus-sign"></span> Add Payment
   </button>
 </h1>
 <input type="hidden" id="app_id" value="<%= @reservation.id %>">
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-default">
-      <div class="panel-heading">DETAILS</div>
+      <div class="panel-heading"><span class="glyphicon glyphicon-folder-open"></span>  DETAILS</div>
       <div class="panel-body">
         <div class="form-group">
           <div class="row">
@@ -52,7 +52,11 @@
             <div class="col-sm-6">
               <label for="status">Status</label>
               <div class="input-group">
-                <input type="text" class="form-control editable" id="status" name="status" value="<%= @reservation.status %>">
+                <select class="form-control editable" id="status" name="status">
+                  <option>PENDING</option>
+                  <option <%= 'selected' if @reservation.status == 'PAID' %>>PAID</option>
+                  <option <%= 'selected' if @reservation.status == 'CANCELLED' %>>CANCELLED</option>
+                </select>
                 <%= edit_save_cancel_btn('status', 'reservation') %>
               </div>
             </div>
@@ -175,7 +179,7 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-primary">
-      <div class="panel-heading">PAYMENTS</div>
+      <div class="panel-heading"><span class="glyphicon glyphicon-usd"></span> PAYMENTS</div>
       <div class="panel-body">
         <table class="table table-striped">
           <thead>

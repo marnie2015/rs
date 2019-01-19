@@ -1,5 +1,5 @@
 <p id="notice" class="hidden"><%= notice %></p>
-<h1 class="page-header">Reservation
+<h1 class="page-header">Reservations
   <a href="<%= new_admin_reservation_path %>" class="btn btn-primary pull-right">
     <span class="glyphicon glyphicon-plus"></span>
     Add New Reservation
@@ -7,35 +7,8 @@
 </h1>
 <div class="row">
   <div class="col-sm-12">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Client</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Package</th>
-          <th>Amount</th>
-          <th>Status</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @reservations.each do |reservation| %>
-          <tr>
-            <td><%= reservation.id %></td>
-
-            <td><%= reservation.client&.fname %></td>
-            <td><%= reservation.reservation_date %></td>
-            <td><%= reservation.reservation_time %></td>
-            <td><%= reservation.package %></td>
-            <td><%= number_with_delimiter("%.0f" % (reservation.amount || 0)) %></td>
-            <td><%= reservation.status %></td>
-            <td><%= link_to 'View', admin_reservation_path(reservation) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div id="events_calendar">
+      <%= render partial: "calendar", locals: {events: @reservations} %>
+    </div>
   </div>
 </div>
