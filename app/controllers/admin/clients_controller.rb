@@ -1,5 +1,5 @@
 class Admin::ClientsController < Admin::ApplicationController
-  # before_action :check_access
+  before_action :check_access
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index

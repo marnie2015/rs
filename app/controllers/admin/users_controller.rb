@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   skip_before_action :verify_authenticity_token
-  # before_action :check_access, except: [:login, :reset_password, :forgot_password]
+  before_action :check_access, except: [:login, :reset_password, :forgot_password]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def login
