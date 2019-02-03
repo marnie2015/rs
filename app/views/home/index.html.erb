@@ -176,26 +176,8 @@
   }
 </style>
 <script>
-	$(document).ready(function() {
-    window.fbAsyncInit = function() {
-      FB.init({
-        xfbml            : true,
-        version          : 'v3.2'
-      });
-    };
-
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-		$('#fbchat').append('<div id="fb-root"></div>');
-	});
+if(!window.location.hash) {
+		window.location = window.location + '#loaded';
+		window.location.reload();
+}
 </script>
-<div class="fb-customerchat"
-  attribution=setup_tool
-  page_id="330186257596781">
-</div>
