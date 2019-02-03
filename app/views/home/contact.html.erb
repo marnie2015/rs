@@ -51,6 +51,10 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-		<%= render 'layouts/facebook_chat' %>
+		$('body').append('<div id="fb-root"></div>');
 	});
 </script>
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="330186257596781">
+</div>
