@@ -21,7 +21,7 @@ class Admin::PackagesController < Admin::ApplicationController
 
     respond_to do |format|
       if @package.save
-        format.html { redirect_to @package, notice: 'Package was successfully created.' }
+        format.html { redirect_to '/admin/packages', notice: 'Package was successfully created.' }
         format.json { render :show, status: :created, location: @package }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class Admin::PackagesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        format.html { redirect_to @package, notice: 'Package was successfully updated.' }
+        format.html { redirect_to '/admin/packages', notice: 'Package was successfully updated.' }
         format.json { render :show, status: :ok, location: @package }
       else
         format.html { render :edit }
